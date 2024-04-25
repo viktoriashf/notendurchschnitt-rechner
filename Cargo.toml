@@ -1,9 +1,10 @@
 [package]
-name = "my-project"
+name = "notendurchschnitt-rechner"
 version = "0.1.0"
 authors = ["viktoriashf <viktoria.schaaf.vs@gmail.com>"]
 edition = "2021"
 build = "build.rs"
+description = "A desktop app that takes 6 different grades as an input and calculates the average mark."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -12,3 +13,9 @@ slint = "1.5"
 
 [build-dependencies]
 slint-build = "1.5"
+
+[package.metadata.bundle]
+name = "Notendurchschnitt-Rechner"
+identifier = "io.github.viktoriashf.notendurchschnitt-rechner"
+description = "A desktop app that takes 6 different grades as an input and calculates the average mark."
+icon = ["./icon.png", "./icon@2x.png"]
