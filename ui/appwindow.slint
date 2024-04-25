@@ -1,0 +1,99 @@
+import { Button, VerticalBox, LineEdit } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+
+    in property <string> results: "";
+    callback average-mark(string, string, string, string, string, string);
+
+    background: #313e50;
+    GridLayout {
+        padding: 55px;
+        spacing: 25px;
+        Row {
+            Text {
+                text: "Gib deine Noten ein";
+                horizontal-alignment: center;
+                font-size: 24px;
+                font-weight: 800;
+            }
+        }
+        Row {
+            Text {
+                text: "(Bei nichterhaltenen Noten 1.0 eingeben)";
+                horizontal-alignment: center;
+                font-size: 20px;
+                font-weight: 650;
+            }
+        }
+        Row {
+            grade1 := LineEdit {
+                horizontal-alignment: center;
+                font-size: 16px;
+                placeholder-text: "Note 1";
+                height: 35px;
+            }
+        }
+        Row {
+            grade2 := LineEdit {
+                horizontal-alignment: center;
+                font-size: 16px;
+                placeholder-text: "Note 2";
+                height: 35px;
+            }
+        }
+        Row {
+            grade3 := LineEdit {
+                horizontal-alignment: center;
+                font-size: 16px;
+                placeholder-text: "Note 3";
+                height: 35px;
+            }
+        }
+        Row {
+            grade4 := LineEdit {
+                horizontal-alignment: center;
+                font-size: 16px;
+                placeholder-text: "Note 4";
+                height: 35px;
+            }
+        }
+        Row {
+            grade5_2 := LineEdit {
+                horizontal-alignment: center;
+                font-size: 16px;
+                placeholder-text: "Note 5 (im WAB Modul)";
+                height: 35px;
+            }
+        }
+        Row {
+            grade5_8 := LineEdit {
+                horizontal-alignment: center;
+                font-size: 16px;
+                placeholder-text: "WAB-Note";
+                height: 35px;
+            }
+        }
+        Row {
+            Button {
+                text: "berechnen";
+                primary: true;
+                height: 35px;
+                clicked => {average-mark(grade1.text, grade2.text, grade3.text, grade4.text, grade5-2.text, grade5-8.text)}
+            }
+        }
+        Row {
+            VerticalBox {
+                Rectangle {
+                    height: 100px;
+                    background: #313e50;
+                    Text {
+                        color: black;
+                        font-size: 16px;
+                        font-weight: 500;
+                        text: root.results;
+                    }
+                }
+            }
+        }
+    }   
+}
